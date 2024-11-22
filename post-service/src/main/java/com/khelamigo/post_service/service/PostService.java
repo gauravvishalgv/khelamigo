@@ -74,7 +74,6 @@ public class PostService {
         
         Post post = postRepository.findById(postId).orElseThrow(() -> new RuntimeException("Post not found"));
 
-
         User existingUser = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
 
         post.getLikes().add(existingUser);

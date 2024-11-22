@@ -2,6 +2,9 @@ package com.khelamigo.post_service.controller;
 
 import com.khelamigo.post_service.model.Comment;
 import com.khelamigo.post_service.service.CommentService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,5 +33,10 @@ public class CommentController {
 
         Comment createdReply = commentService.addReplyToComment(commentId, reply, userId);
         return ResponseEntity.ok(createdReply);
+    }
+
+    @GetMapping("/reply/{parentCommentId}")
+    public List<Comment> getReplies(@PathVariable String parentCommentId) {
+        return commentService.getRepliesUnderComment(parentCommentId);
     }
 }

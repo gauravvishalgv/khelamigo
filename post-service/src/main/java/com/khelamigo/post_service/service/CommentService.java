@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -58,5 +59,9 @@ public class CommentService {
         Comment parentComment = parentCommentOptional.get();
         comment.setParentComment(parentComment);
         return commentRepository.save(comment);
+    }
+
+    public List<Comment> getRepliesUnderComment(String parentCommentId) {
+        return commentRepository.findByParentCommentId(parentCommentId);
     }
 }

@@ -10,6 +10,8 @@ import java.util.List;
 public interface PostRepository extends Neo4jRepository<Post, String> {
 
    List<Post> findAll();
+
+   List<Post> findByUserId(Long userId);
     
    @Query("""
       MATCH (p:Post {id: $postId})

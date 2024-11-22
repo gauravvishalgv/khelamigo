@@ -33,6 +33,10 @@ public class PostService {
         return postRepository.findAll();
     }
 
+    public List<Post> getPostsByUserId(Long userId) {
+        return postRepository.findByUserId(userId);
+    }
+
     public Post createPost(PostRequestDto postRequestDto, Long userId) {
 
         User user = new User();

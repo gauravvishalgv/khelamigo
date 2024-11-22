@@ -37,6 +37,10 @@ public class PostService {
         return postRepository.findByUserId(userId);
     }
 
+    public List<Post> getPostsByTagName(String tagName) {
+        return postRepository.findByTagsName(tagName);
+    }
+
     public Post createPost(PostRequestDto postRequestDto, Long userId) {
 
         User user = new User();

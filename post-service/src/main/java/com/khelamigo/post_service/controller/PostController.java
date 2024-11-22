@@ -27,6 +27,11 @@ public class PostController {
         return postService.getPostsByUserId(userId);
     }
 
+    @GetMapping("/tag/{tagName}")
+    public List<Post> getAllPostsByUser(@PathVariable String tagName) {
+        return postService.getPostsByTagName(tagName);
+    }
+
     @PostMapping
     public Post createPost(@RequestBody PostRequestDto postRequestDto) {
 

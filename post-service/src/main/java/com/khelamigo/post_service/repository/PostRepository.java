@@ -12,6 +12,8 @@ public interface PostRepository extends Neo4jRepository<Post, String> {
    List<Post> findAll();
 
    List<Post> findByUserId(Long userId);
+
+   List<Post> findByTagsName(String tagName);
     
    @Query("""
       MATCH (p:Post {id: $postId})
